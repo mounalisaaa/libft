@@ -1,0 +1,27 @@
+#include "libft.h"
+
+char	*ft_strrchr(const char *s, int c)
+{
+	int	i;
+
+	i = ft_strlen(s);
+	while (i >= 0)
+	{
+		if (s[i]== (char)c)
+			return ((char *)&s[i]);
+		i--;
+	}
+	return (0);
+}
+
+/*int main () {
+   const char str[] = "https://www.tutorialspoint.com";
+   const char ch = 'h';
+   char *ret;
+
+   ret = ft_strrchr(str, ch);
+
+   printf("String after |%c| is - |%s|\n", ch, ret);
+
+   return(0);
+}*/
