@@ -9,6 +9,8 @@ char *ft_strtrim(char const *s1, char const *set)
 
 	i = 0;
 	start = 0;
+	if (!s1)
+		return (NULL);
 	end = ft_strlen(s1) - 1;
 	while (s1[start])
 	{
@@ -23,6 +25,8 @@ char *ft_strtrim(char const *s1, char const *set)
 		end--;
 	}
 	str = malloc(sizeof(char) * (end - start + 1));
+	if (!str)
+		return (NULL);
 	while (start <= end)
 		str[i++] = s1[start++];
 	str[i] = '\0';
