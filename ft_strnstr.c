@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: melyaaco <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/03 17:30:45 by melyaaco          #+#    #+#             */
+/*   Updated: 2023/11/03 17:31:04 by melyaaco         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char *ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
 	size_t	j;
@@ -11,7 +23,8 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 	while (haystack[i] && i < len)
 	{
 		j = 0;
-		while (haystack[i + j] && needle[j] && haystack[i + j] == needle[j] && (i + j < len))
+		while (haystack[i + j] && needle[j] && haystack[i + j] == needle[j]
+			&& (i + j < len))
 			j++;
 		if (needle[j] == '\0')
 			return ((char *)&haystack[i]);
@@ -19,16 +32,3 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (NULL);
 }
-/*int main (void)
-{
-    const char* haystack = "hello World!";
-    const char* needle = "W";
-    size_t len = strlen(needle);
-
-    char* result = ft_strnstr(haystack, needle, len);
-    char* r = strnstr(haystack, needle, len);
-	printf("%s\n", result);
-	printf("%s\n", r);
-	return (0);
-
-}*/

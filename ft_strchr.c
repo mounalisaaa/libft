@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: melyaaco <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/03 17:17:27 by melyaaco          #+#    #+#             */
+/*   Updated: 2023/11/03 17:19:07 by melyaaco         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
-	size_t i;
-	size_t len;
+	size_t	i;
+	size_t	len;
 
 	i = 0;
 	len = ft_strlen(s);
@@ -15,14 +27,3 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (0);
 }
-/*int main () {
-   const char str[] = "https://www.tutorialspoint.com";
-   const char ch = '\0';
-   char *ret;
-
-   ret = strchr(str, ch);
-
-   printf("String after |%c| is - |%s|\n", ch, ret);
-   
-   return(0);
-}*/

@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: melyaaco <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/03 17:45:03 by melyaaco          #+#    #+#             */
+/*   Updated: 2023/11/03 18:23:35 by melyaaco         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int word_count(char *str, char c)
+int	word_count(char *str, char c)
 {
 	int	i;
 	int	count;
@@ -21,16 +33,33 @@ int word_count(char *str, char c)
 	return (count);
 }
 
+char	*alloc_word(char *s, char c, int *i)
+{
+	int		j;
+	char	*word;
+
+	j = 0;
+	while (s[*i + j] && s[*i + j] != c)
+		j++;
+	word = (char *)malloc(sizeof(char) * (j + 1));
+	j = 0;
+	while (s[*i] && s[*i] != c)
+	{
+		word[j++] = s[*i];
+		*i += 1;
+	}
+	word[j] = '\0';
+	return (word);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	char **arr;
-	int	count;
-	int	i;
-	int j;
-	int k;
+	char	**arr;
+	int		count;
+	int		i;
+	int		j;
+	int		k;
 
-	if (!s)
-		return (NULL);
 	count = word_count((char *)s, c);
 	arr = malloc(sizeof(char *) * (count + 1));
 	if (!arr)
@@ -43,21 +72,13 @@ char	**ft_split(char const *s, char c)
 		if (s[i] == c)
 			i++;
 		else
-		{
-			while (s[i + j] && s[i + j] != c)
-				j++;
-			arr[k] = malloc (sizeof(char) * (j + 1));
-			j = 0;
-			while (s[i] && s[i] != c)
-				arr[k][j++] = s[i++];
-			arr[k][j] = 0;
-			k++;
-		}
+			arr[k++] = alloc_word((char *)s, c, &i);
 	}
 	arr[k] = 0;
 	return (arr);
 }
-/*int main (void)
+/*
+int main (void)
 {
 	int count = word_count("Hello World", ' ');
 	printf("%d\n", count);

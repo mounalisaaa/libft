@@ -1,30 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: melyaaco <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/03 17:43:39 by melyaaco          #+#    #+#             */
+/*   Updated: 2023/11/03 19:41:37 by melyaaco         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	i;
-	int	start;
-	int	end;
-	char *str;
+	int		i;
+	int		start;
+	int		end;
+	char	*str;
 
 	i = 0;
 	start = 0;
-	if (!s1)
-		return (NULL);
 	end = ft_strlen(s1) - 1;
-	while (s1[start])
-	{
-		if (!(ft_strchr(set, s1[start])))
-			break;
+	while (start <= end && (ft_strchr(set, s1[start])))
 		start++;
-	}
-	while (end >= start)
-	{
-		if (!(ft_strchr(set, s1[end])))
-			break;
+	if (start > end)
+		return (ft_strdup(""));
+	while (end >= start && (ft_strchr(set, s1[end])))
 		end--;
-	}
-	str = malloc(sizeof(char) * (end - start + 1));
+	str = malloc(sizeof(char) * (end - start + 2));
 	if (!str)
 		return (NULL);
 	while (start <= end)
@@ -32,12 +36,3 @@ char *ft_strtrim(char const *s1, char const *set)
 	str[i] = '\0';
 	return (str);
 }
-
-/*int main (void)
-{
-	char *r;
-
-	r = ft_strtrim("+-+-+hello+-+-+", "+-");
-	printf("%s\n", r);
-	return 0;
-}*/

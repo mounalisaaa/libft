@@ -1,39 +1,54 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: melyaaco <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/03 18:06:06 by melyaaco          #+#    #+#             */
+/*   Updated: 2023/11/03 18:10:07 by melyaaco         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int count(int n)
+int	count(int n)
 {
-	int i = 0;
-	unsigned int  nb;
-	
+	int				i;
+	unsigned int	nb;
+
+	i = 0;
 	if (n <= 0)
 	{
 		nb = -n;
 		i++;
-	}else
+	}
+	else
 		nb = n;
 	while (nb > 0)
 	{
 		nb /= 10;
 		i++;
-	//	printf("%d\n", i);
 	}
-	return(i);
+	return (i);
 }
 
 char	*ft_itoa(int n)
 {
-	char *str;
-	int len = count(n);
-	unsigned int nb;
+	char			*str;
+	int				len;
+	unsigned int	nb;
 
+	len = count(n);
 	str = malloc (sizeof(char) * (len + 1));
-	if(!str)
-		return(0);
+	if (!str)
+		return (0);
 	if (n < 0)
 	{
 		str[0] = '-';
 		nb = -n;
-	}else
+	}
+	else
 		nb = n;
 	if (n == 0)
 		str[0] = '0';
@@ -45,10 +60,3 @@ char	*ft_itoa(int n)
 	}
 	return (str);
 }
-
-/*int main (void)
-{
-	char *str = ft_itoa(-2147483648);
-	printf("%s\n", str);
-	return 0;
-}*/
