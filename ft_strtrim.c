@@ -6,7 +6,7 @@
 /*   By: melyaaco <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 17:43:39 by melyaaco          #+#    #+#             */
-/*   Updated: 2023/11/03 19:41:37 by melyaaco         ###   ########.fr       */
+/*   Updated: 2023/11/05 18:16:29 by melyaaco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		end;
 	char	*str;
 
+	if (!s1 || !set)
+		return (NULL);
 	i = 0;
 	start = 0;
 	end = ft_strlen(s1) - 1;

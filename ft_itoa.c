@@ -6,13 +6,13 @@
 /*   By: melyaaco <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:06:06 by melyaaco          #+#    #+#             */
-/*   Updated: 2023/11/03 18:10:07 by melyaaco         ###   ########.fr       */
+/*   Updated: 2023/11/05 18:53:03 by melyaaco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count(int n)
+static int	count(int n)
 {
 	int				i;
 	unsigned int	nb;

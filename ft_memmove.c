@@ -6,7 +6,7 @@
 /*   By: melyaaco <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 16:21:54 by melyaaco          #+#    #+#             */
-/*   Updated: 2023/11/03 17:04:07 by melyaaco         ###   ########.fr       */
+/*   Updated: 2023/11/05 15:16:20 by melyaaco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	d = (unsigned char *)dst;
 	s = (unsigned char *)src;
-	if (src > dst)
+	if (src >= dst)
 		return (ft_memcpy(d, s, len));
 	while (len > 0)
 	{

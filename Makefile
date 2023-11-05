@@ -1,6 +1,6 @@
 CC = cc
 
-CLFAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a
 
@@ -14,6 +14,7 @@ MDTR_SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 
 BNS_SRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
             ft_lstdelone.c ft_lstclear.c  ft_lstiter.c ft_lstmap.c
+
 
 MDTR_OBJ = $(MDTR_SRCS:.c=.o)
 
@@ -30,7 +31,6 @@ bonus:    $(MDTR_OBJ) $(BNS_OBJ)
 $(NAME): $(MDTR_OBJ)
 	ar rcs $(NAME) $(MDTR_OBJ)
 
-.PHONY: clean all fclean re
 clean:
 	rm -f $(MDTR_OBJ) $(BNS_OBJ)
 fclean: clean

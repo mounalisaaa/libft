@@ -6,13 +6,13 @@
 /*   By: melyaaco <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 12:43:34 by melyaaco          #+#    #+#             */
-/*   Updated: 2023/11/03 12:43:40 by melyaaco         ###   ########.fr       */
+/*   Updated: 2023/11/05 16:24:24 by melyaaco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_space(char c)
+static int	is_space(char c)
 {
 	return (c == ' ' || c == '\t' || c == '\n' || c == '\v'
 		|| c == '\f' || c == '\r');

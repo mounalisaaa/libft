@@ -6,7 +6,7 @@
 /*   By: melyaaco <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:16:23 by melyaaco          #+#    #+#             */
-/*   Updated: 2023/11/03 18:17:05 by melyaaco         ###   ########.fr       */
+/*   Updated: 2023/11/04 14:20:13 by melyaaco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	if (!last)
 	{
 		*lst = new;
-		new->next = NULL;
 		return ;
 	}
 	last->next = new;
-	new->next = NULL;
 }

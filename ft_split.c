@@ -6,13 +6,13 @@
 /*   By: melyaaco <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 17:45:03 by melyaaco          #+#    #+#             */
-/*   Updated: 2023/11/03 18:23:35 by melyaaco         ###   ########.fr       */
+/*   Updated: 2023/11/05 18:42:55 by melyaaco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	word_count(char *str, char c)
+static int	word_count(char *str, char c)
 {
 	int	i;
 	int	count;
@@ -33,7 +33,7 @@ int	word_count(char *str, char c)
 	return (count);
 }
 
-char	*alloc_word(char *s, char c, int *i)
+static char	*alloc_word(char *s, char c, int *i)
 {
 	int		j;
 	char	*word;
@@ -42,6 +42,8 @@ char	*alloc_word(char *s, char c, int *i)
 	while (s[*i + j] && s[*i + j] != c)
 		j++;
 	word = (char *)malloc(sizeof(char) * (j + 1));
+	if (!word)
+		return (NULL);
 	j = 0;
 	while (s[*i] && s[*i] != c)
 	{
@@ -52,39 +54,41 @@ char	*alloc_word(char *s, char c, int *i)
 	return (word);
 }
 
+static char	**free_list(char **list, int i)
+{
+	int	j;
+
+	j = 0;
+	while (j < i)
+		free(list[j++]);
+	free(list);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
-	int		count;
 	int		i;
-	int		j;
 	int		k;
 
-	count = word_count((char *)s, c);
-	arr = malloc(sizeof(char *) * (count + 1));
+	if (!s)
+		return (NULL);
+	arr = malloc(sizeof(char *) * (word_count((char *)s, c) + 1));
 	if (!arr)
 		return (0);
 	i = 0;
 	k = 0;
 	while (s[i])
 	{
-		j = 0;
 		if (s[i] == c)
 			i++;
 		else
+		{
 			arr[k++] = alloc_word((char *)s, c, &i);
+			if (!arr[k - 1])
+				return (free_list(arr, k - 1));
+		}
 	}
 	arr[k] = 0;
 	return (arr);
 }
-/*
-int main (void)
-{
-	int count = word_count("Hello World", ' ');
-	printf("%d\n", count);
-
-	char **arr = ft_split("Hello World", ' ');
-	while (count > 0)
-		printf("%s\n", arr[--count]);
-	return 0 ;
-}*/
