@@ -6,7 +6,7 @@
 /*   By: melyaaco <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 17:33:25 by melyaaco          #+#    #+#             */
-/*   Updated: 2023/11/05 17:07:18 by melyaaco         ###   ########.fr       */
+/*   Updated: 2023/11/06 17:58:07 by melyaaco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	len_s;
 
-	i = 0;
-	len_s = ft_strlen(s);
 	if (!s)
 		return (NULL);
+	i = 0;
+	len_s = ft_strlen(s);
 	if (start >= len_s)
 		len = 0;
 	if (len_s - start < len)

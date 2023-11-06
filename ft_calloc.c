@@ -6,7 +6,7 @@
 /*   By: melyaaco <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 17:32:10 by melyaaco          #+#    #+#             */
-/*   Updated: 2023/11/03 17:32:31 by melyaaco         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:14:44 by melyaaco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	char	*str;
+	void	*str;
 
 	str = malloc (count * size);
 	if (!str)
