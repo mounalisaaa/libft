@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: melyaaco <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 17:45:03 by melyaaco          #+#    #+#             */
-/*   Updated: 2023/11/06 15:09:46 by melyaaco         ###   ########.fr       */
+/*   Created: 2023/11/07 17:27:59 by melyaaco          #+#    #+#             */
+/*   Updated: 2023/11/07 17:28:02 by melyaaco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static int	word_count(char *str, char c)
 
 	i = 0;
 	count = 0;
+	if (!str)
+		return (0);
 	while (str[i])
 	{
 		if (str[i] == c)
@@ -54,14 +56,14 @@ static char	*alloc_word(char *s, char c, int *i)
 	return (word);
 }
 
-static char	**free_list(char **list, int i)
+static char	**free_arr(char **arr, int i)
 {
 	int	j;
 
 	j = 0;
 	while (j < i)
-		free(list[j++]);
-	free(list);
+		free(arr[j++]);
+	free(arr);
 	return (NULL);
 }
 
@@ -86,7 +88,7 @@ char	**ft_split(char const *s, char c)
 		{
 			arr[k++] = alloc_word((char *)s, c, &i);
 			if (!arr[k - 1])
-				return (free_list(arr, k - 1));
+				return (free_arr(arr, k - 1));
 		}
 	}
 	arr[k] = 0;

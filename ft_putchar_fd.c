@@ -6,7 +6,7 @@
 /*   By: melyaaco <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:12:14 by melyaaco          #+#    #+#             */
-/*   Updated: 2023/11/03 18:12:31 by melyaaco         ###   ########.fr       */
+/*   Updated: 2023/11/09 11:56:45 by melyaaco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
+	if (fd < 0)
+		return ;
 	write(fd, &c, 1);
 }

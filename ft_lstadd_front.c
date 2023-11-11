@@ -6,7 +6,7 @@
 /*   By: melyaaco <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:17:40 by melyaaco          #+#    #+#             */
-/*   Updated: 2023/11/03 18:18:42 by melyaaco         ###   ########.fr       */
+/*   Updated: 2023/11/09 13:11:23 by melyaaco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*ptr;
-
-	ptr = new;
-	ptr->next = (*lst);
-	(*lst) = ptr;
+	if (!lst || !new)
+		return ;
+	new->next = (*lst);
+	(*lst) = new;
 }

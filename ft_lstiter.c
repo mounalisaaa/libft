@@ -6,7 +6,7 @@
 /*   By: melyaaco <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:22:31 by melyaaco          #+#    #+#             */
-/*   Updated: 2023/11/03 18:22:32 by melyaaco         ###   ########.fr       */
+/*   Updated: 2023/11/09 13:18:26 by melyaaco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
+	if (!lst || !f)
+		return ;
 	while (lst)
 	{
 		f(lst->content);

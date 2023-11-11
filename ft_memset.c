@@ -6,7 +6,7 @@
 /*   By: melyaaco <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:56:10 by melyaaco          #+#    #+#             */
-/*   Updated: 2023/11/06 15:13:40 by melyaaco         ###   ########.fr       */
+/*   Updated: 2023/11/07 10:35:46 by melyaaco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	*ft_memset(void *b, int c, size_t len)
 	i = 0;
 	while (i < len)
 		str[i++] = (unsigned char)c;
-	return (str);
+	return (b);
 }
